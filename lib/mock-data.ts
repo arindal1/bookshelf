@@ -63,6 +63,20 @@ export const authors: Author[] = [
     country: "America",
     photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Harlan_Ellison_at_the_LA_Press_Club_%28cropped%29.jpg/250px-Harlan_Ellison_at_the_LA_Press_Club_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
+  {
+    id: "a_10",
+    name: "Marcus Aurelius",
+    bio: "Marcus Aurelius Antoninus (26 April 121 – 17 March 180) was Roman emperor from 161 to 180 and a Stoic philosopher. He was a member of the Nerva–Antonine dynasty, the last of the rulers later known as the Five Good Emperors and the last emperor of the Pax Romana, an age of relative peace, calm, and stability for the Roman Empire lasting from 27 BC to 180 AD. He served as Roman consul in 140, 145, and 161.",
+    country: "Greece",
+    photoUrl: "https://en.wikipedia.org/wiki/Marcus_Aurelius#/media/File:MSR-ra-61-b-1-DM.jpg",
+  },
+  {
+    id: "a_11",
+    name: "Niccolò Machiavelli",
+    bio: "Niccolò di Bernardo dei Machiavelli (3 May 1469 – 21 June 1527) was a Florentine diplomat, author, philosopher, and historian who lived during the Italian Renaissance. He is best known for his political treatise The Prince (Il Principe), written around 1513 but not published until 1532, five years after his death. He has often been called the father of modern political philosophy and political science.",
+    country: "Italy",
+    photoUrl: "https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli#/media/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg",
+  },
 ];
 
 export const books: Book[] = [
@@ -137,6 +151,114 @@ export const books: Book[] = [
     summary:
       "In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices. Holmes is portrayed as offering a new, fairer sense of justice. The stories were well received, and boosted the subscriptions figures of The Strand Magazine, prompting Doyle to be able to demand more money for his next set of stories. The first story, 'A Scandal in Bohemia', includes the character of Irene Adler, who, despite being featured only within this one story by Doyle, is a prominent character in modern Sherlock Holmes adaptations, often as a love interest for Holmes. Doyle included four of the stories from this collection in his twelve favourite Sherlock Holmes stories, picking 'The Adventure of the Speckled Band' as his overall favourite.",
     readingTimeMinutes: 420,
+  },
+  {
+    id: "b-6",
+    slug: "i-have-no-mouth-and-i-must-scream",
+    title: "I Have No Mouth and I Must Scream",
+    authorId: "a_9",
+    language: "English",
+    genre: "Post-Apocalyptic Horror",
+    tags: ["Post-Apocalyptic", "Horror", "Short Story", "Sci-Fi", "AI"],
+    coverImage: "https://en.wikipedia.org/wiki/I_Have_No_Mouth,_and_I_Must_Scream#/media/File:IHaveNoMouth.jpg",
+    coverTone: "black",
+    pageCount: 22,
+    publishedYear: 1967,
+    description:
+      "'I Have No Mouth, and I Must Scream' is a post-apocalyptic short story by American writer Harlan Ellison. It was first published in the March 1967 issue of IF: Worlds of Science Fiction.",
+    summary:
+      "The story depicts an AI uprising in which a military supercomputer named AM gains sentience and eradicates humanity except for five individuals. These survivors are kept alive by AM to endure endless torture as a form of revenge against its creators. The story unfolds through the eyes of Ted, the narrator, detailing their perpetual misery and quest for canned food in AM's vast, underground complex, only to face further despair.",
+    readingTimeMinutes: 60,
+  },
+  {
+    id: "b_7",
+    slug: "the-metamorphosis",
+    title: "The Metamorphosis",
+    authorId: "a_3",
+    language: "English",
+    genre: "Existentialism",
+    tags: ["Existentialism", "Absurdism", "Fiction", "Sci-Fi", "Psychological"],
+    coverImage: "https://m.media-amazon.com/images/I/71yB9kZByYL._SL1499_.jpg",
+    coverTone: "black",
+    pageCount: 12,
+    publishedYear: 1915,
+    description:
+      "The Metamorphosis (German: Die Verwandlung, pronounced [dɪ fɛɐ̯ˈvantlʊŋ]), also translated as The Transformation,[2] is a novella by Franz Kafka published in 1915.",
+    summary:
+      "The story depicts an AI uprising in which a military supercomputer named AM gains sentience and eradicates humanity except for five individuals. These survivors are kept alive by AM to endure endless torture as a form of revenge against its creators. The story unfolds through the eyes of Ted, the narrator, detailing their perpetual misery and quest for canned food in AM's vast, underground complex, only to face further despair.",
+    readingTimeMinutes: 180,
+  },
+  {
+    id: "b_8",
+    slug: "meditations",
+    title: "Meditations",
+    authorId: "a_10",
+    language: "English",
+    genre: "Historic",
+    tags: ["Historic"],
+    coverImage: "https://i.pinimg.com/1200x/63/aa/41/63aa413e062f83b67e91a1199c60ebaf.jpg",
+    coverTone: "black",
+    pageCount: 83,
+    publishedYear: 1558,
+    description:
+      "Marcus Aurelius wrote the 12 books of the Meditations in Koine Greek as a source for his own guidance and self-improvement. It is possible that large portions of the work were written at Sirmium (modern-day Sremska Mitrovica, Serbia), where he spent much time planning military campaigns in 170–180 AD. A portion of his work was written while he was on campaign, because internal notes reveal that the first book was 'written in the country of the Quadi, at the Granova' (modern-day Hron River in Slovakia) and the second book was written at Carnuntum",
+    summary:
+      "A central theme to Meditations is the importance of analyzing one's judgment of self and others and developing a cosmic perspective: 'You have the power to strip away many superfluous troubles located wholly in your judgment, and to possess a large room for yourself embracing in thought the whole cosmos, to consider everlasting time, to think of the rapid change in the parts of each thing, of how short it is from birth until dissolution, and how the void before birth and that after dissolution are equally infinite.'",
+    readingTimeMinutes: 820,
+  },
+  {
+    id: "b_9",
+    slug: "the-prince",
+    title: "The Prince",
+    authorId: "a_11",
+    language: "English",
+    genre: "Political Philosophy",
+    tags: ["Historic", "Political"],
+    coverImage: "https://m.media-amazon.com/images/I/51KV9QHeUBL._SL1500_.jpg",
+    coverTone: "black",
+    pageCount: 42,
+    publishedYear: 1532,
+    description:
+      "The Prince (Italian: Il Principe [il ˈprintʃipe]; Latin: De Principatibus) is a 16th-century political treatise written by the Italian diplomat and political philosopher Niccolò Machiavelli in the form of an instruction guide for new princes. Many commentators have viewed that one of the main themes of The Prince is that immoral acts are sometimes necessary to achieve political glory.",
+    summary:
+      "The Prince by Niccolò Machiavelli is a 16th-century political treatise written in 1513 that offers pragmatic advice on how to acquire, maintain, and consolidate political power. Written during Machiavelli’s exile from Florence, the work is dedicated to Lorenzo de' Medici and focuses primarily on 'new principalities' rather than hereditary states, arguing that rulers must prioritize state security and stability over conventional morality.",
+    readingTimeMinutes: 180,
+  },
+  {
+    id: "b_10",
+    slug: "a-study-in-scarlet",
+    title: "A Study in Scarlet",
+    authorId: "a_5",
+    language: "English",
+    genre: "Detective Fiction",
+    tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
+    coverImage: "https://en.wikipedia.org/wiki/A_Study_in_Scarlet#/media/File:ArthurConanDoyle_AStudyInScarlet_annual.jpg",
+    coverTone: "yellow",
+    pageCount: 92,
+    publishedYear: 1887,
+    description:
+      "A Study in Scarlet is a detective novel by British author Arthur Conan Doyle. Published in 1887, the story marks the first appearance of Sherlock Holmes and Dr. Watson, who would go on to become one of the most well-known detective duos in literature.",
+    summary:
+      "Sherlock Holmes and Dr. Watson investigate the murder of Enoch Drebber in London, deducing that the killer is Jefferson Hope — driven by revenge for the death of his love, Lucy Ferrier, who was coerced into marrying Drebber (and his accomplice Stangerson) by Mormon leaders in Utah decades earlier. Hope tracks both men from Utah to London and kills them, dying himself in the process.",
+    readingTimeMinutes: 180,
+  },
+  {
+    id: "b_11",
+    slug: "the-hound-of-baskervilles",
+    title: "The Hound of Baskervilles",
+    authorId: "a_5",
+    language: "English",
+    genre: "Detective Fiction",
+    tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
+    coverImage: "https://en.wikipedia.org/wiki/The_Hound_of_the_Baskervilles#/media/File:Cover_(Hound_of_Baskervilles,_1902).jpg",
+    coverTone: "red",
+    pageCount: 154,
+    publishedYear: 1901,
+    description:
+      "The Hound of the Baskervilles is the third of the four crime novels by British writer Arthur Conan Doyle featuring the detective Sherlock Holmes. Originally serialised in The Strand Magazine from August 1901 to April 1902, it is set largely in Dartmoor, Devon, in England's West Country and follows Holmes and Watson investigating the legend of a fearsome, diabolical hound of supernatural origin. This was the first appearance of Holmes since his apparent death in 'The Final Problem', and the success of The Hound of the Baskervilles led to the character's eventual revival.",
+    summary:
+      "The Hound of the Baskervilles (1902) is a Sherlock Holmes novel by Arthur Conan Doyle. Holmes and Watson investigate the death of Sir Charles Baskerville, who was killed by a terrifying ghostly hound on the Devon moors. Holmes suspects the killer is Jack Stapleton, a relative who uses a real dog painted with phosphorescent paint to impersonate the legendary Baskerville hound and scare victims to death, all to claim the family fortune. Holmes and Watson expose the plot, shoot the hound, and Stapleton drowns in the Grimpen Mire.",
+    readingTimeMinutes: 240,
   },
 ];
 
