@@ -1,0 +1,120 @@
+// Prisma schema modeling PRD.md §18. Not yet migrated against a live Neon
+// instance — see docs/DECISIONS.md ADR-002. UI runs against lib/mock-data.ts
+// until DATABASE_URL is provisioned and `npx prisma migrate dev` is run.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  username      String    @unique
+  email         String    @unique
+  passwordHash  String?
+  avatarUrl     String?
+  bio           String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  oauthAccounts OAuthAccount[]
+  shelves       Shelf[]
+  readingEvents ReadingHistory[]
+}
+
+model OAuthAccount {
+  id                String   @id @default(cuid())
+  userId            String
+  provider          String
+  providerAccountId String
+  createdAt         DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Author {
+  id        String   @id @default(cuid())
+  name      String
+  bio       String?
+  birthDate DateTime?
+  country   String?
+  photoUrl  String?
+
+  books Book[]
+}
+
+model Book {
+  id             String   @id @default(cuid())
+  title          String
+  slug           String   @unique
+  description    String?
+  summary        String?
+  authorId       String
+  language       String   @default("en")
+  genre          String?
+  coverImage     String?
+  pageCount      Int      @default(0)
+  publishedYear  Int?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  author Author      @relation(fields: [authorId], references: [id])
+  pages  BookPage[]
+  shelves Shelf[]
+  readingEvents ReadingHistory[]
+}
+
+model BookPage {
+  id         String   @id @default(cuid())
+  bookId     String
+  pageNumber Int
+  content    String
+  createdAt  DateTime @default(now())
+
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([bookId, pageNumber])
+}
+
+enum ShelfStatus {
+  WANT_TO_READ
+  CURRENTLY_READING
+  FINISHED
+  RE_READING
+  ON_HOLD
+  DROPPED
+}
+
+model Shelf {
+  id               String      @id @default(cuid())
+  userId           String
+  bookId           String
+  status           ShelfStatus @default(WANT_TO_READ)
+  startedAt        DateTime?
+  finishedAt       DateTime?
+  currentPage      Int         @default(0)
+  progressPercent  Float       @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+}
+
+model ReadingHistory {
+  id         String   @id @default(cuid())
+  userId     String
+  bookId     String
+  pageNumber Int
+  timestamp  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+}

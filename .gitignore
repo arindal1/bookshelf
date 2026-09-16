@@ -1,0 +1,77 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Build output
+/.next/
+/out/
+/build/
+/dist/
+
+# Production
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Turbo
+.turbo
+
+# Cache
+.cache/
+.eslintcache
+
+# Coverage
+coverage/
+
+# Testing
+playwright-report/
+test-results/
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local database
+*.sqlite
+*.sqlite3
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# Misc
+*.pem
+
+dump.txt
+notes.txt
+PRD.md
+content/
