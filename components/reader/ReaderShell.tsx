@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { FormattedText } from "@/components/reader/FormattedText";
 import { formatMinutes } from "@/lib/utils";
 import { saveReadingProgress } from "@/lib/actions/shelf";
 import type { Book, BookPage } from "@/types";
@@ -84,7 +85,9 @@ export function ReaderShell({
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <p className="text-lg leading-[1.7] text-ink/90">{currentPage?.content}</p>
+            <p className="text-lg leading-[1.7] text-ink/90">
+              {currentPage ? <FormattedText text={currentPage.content} /> : null}
+            </p>
           </motion.article>
         </AnimatePresence>
       </main>
