@@ -14,7 +14,19 @@ export const metadata: Metadata = {
   title: { default: title, template: `%s - ${title}` },
   description,
   applicationName: title,
+
+  authors: [
+    {
+      name: "Arindal Char",
+      url: "https://arindalchar.vercel.app/", // Optional
+    },
+  ],
+
+  creator: "Arindal Char",
+  publisher: "Arindal Char",
+
   robots: { index: true, follow: true },
+
   openGraph: {
     type: "website",
     siteName: title,
@@ -22,11 +34,14 @@ export const metadata: Metadata = {
     description,
     url: siteUrl,
   },
+
   twitter: {
     card: "summary",
     title,
     description,
+    creator: "@arindal_17",
   },
+
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
