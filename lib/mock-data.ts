@@ -2,7 +2,7 @@ import type { Author, Book, BookPage, Profile, ShelfEntry } from "@/types";
 
 // Demo content standing in for the Neon-backed data layer (see
 // docs/DECISIONS.md ADR-002). Swapping to Prisma repositories later is a
-// drop-in change — components only ever import from this module's shape.
+// drop-in change - components only ever import from this module's shape.
 
 export const currentUserId = "u_reader";
 
@@ -45,7 +45,7 @@ export const authors: Author[] = [
   {
     id: "a_7",
     name: "Homer",
-    bio: "Homer (possibly born c. 8th century BC) was an ancient Greek poet who is traditionally credited as the author of the Iliad and the Odyssey, two epic poems that are foundational works of ancient Greek literature. Homer was highly revered in ancient Greek society and is considered one of the most influential authors in history. Today, the question of Homer's identity and existence—dubbed the 'Homeric Question' —continues to be debated, and scholars generally regard the two poems as the works of separate authors.",
+    bio: "Homer (possibly born c. 8th century BC) was an ancient Greek poet who is traditionally credited as the author of the Iliad and the Odyssey, two epic poems that are foundational works of ancient Greek literature. Homer was highly revered in ancient Greek society and is considered one of the most influential authors in history. Today, the question of Homer's identity and existence-dubbed the 'Homeric Question' -continues to be debated, and scholars generally regard the two poems as the works of separate authors.",
     country: "Greece",
     photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg/250px-Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
@@ -113,7 +113,7 @@ export const books: Book[] = [
     description:
       "Frankenstein; or, The Modern Prometheus is an 1818 Gothic novel written by English author Mary Shelley. It tells the story of Victor Frankenstein, a young scientist who creates a sapient creature from different body parts in an unorthodox scientific experiment. Shelley started writing the story when she was 18 and staying in Bath, and the first edition was published anonymously in London on 1 January 1818, when she was 20. Her name first appeared in a French translation published in Paris in 1821.",
     summary:
-      "A young scientist, Victor Frankenstein, becomes obsessed with uncovering the secret of life. After years of study, he succeeds in animating a being he has assembled from dead body parts — but is immediately repulsed by his own creation and abandons it. The Creature, intelligent but monstrous in appearance, is rejected by everyone he encounters. Shaped by loneliness and cruelty, he grows bitter and vows revenge on his maker. Told through a frame narrative (a sailor's letters → Victor's confession → the Creature's own account), the novel explores the consequences of unchecked ambition, the responsibility of a creator, and the cost of isolation. It's considered a founding text of both Gothic fiction and science fiction.",
+      "A young scientist, Victor Frankenstein, becomes obsessed with uncovering the secret of life. After years of study, he succeeds in animating a being he has assembled from dead body parts - but is immediately repulsed by his own creation and abandons it. The Creature, intelligent but monstrous in appearance, is rejected by everyone he encounters. Shaped by loneliness and cruelty, he grows bitter and vows revenge on his maker. Told through a frame narrative (a sailor's letters → Victor's confession → the Creature's own account), the novel explores the consequences of unchecked ambition, the responsibility of a creator, and the cost of isolation. It's considered a founding text of both Gothic fiction and science fiction.",
     readingTimeMinutes: 420,
   },
   {
@@ -160,7 +160,7 @@ export const books: Book[] = [
     language: "English",
     genre: "Post-Apocalyptic Horror",
     tags: ["Post-Apocalyptic", "Horror", "Short Story", "Sci-Fi", "AI"],
-    coverImage: "https://en.wikipedia.org/wiki/I_Have_No_Mouth,_and_I_Must_Scream#/media/File:IHaveNoMouth.jpg",
+    coverImage: "https://en.wikipedia.org/wiki/Special:FilePath/IHaveNoMouth.jpg",
     coverTone: "black",
     pageCount: 22,
     publishedYear: 1967,
@@ -232,14 +232,14 @@ export const books: Book[] = [
     language: "English",
     genre: "Detective Fiction",
     tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
-    coverImage: "https://en.wikipedia.org/wiki/A_Study_in_Scarlet#/media/File:ArthurConanDoyle_AStudyInScarlet_annual.jpg",
+    coverImage: "https://en.wikipedia.org/wiki/Special:FilePath/ArthurConanDoyle_AStudyInScarlet_annual.jpg",
     coverTone: "yellow",
     pageCount: 92,
     publishedYear: 1887,
     description:
       "A Study in Scarlet is a detective novel by British author Arthur Conan Doyle. Published in 1887, the story marks the first appearance of Sherlock Holmes and Dr. Watson, who would go on to become one of the most well-known detective duos in literature.",
     summary:
-      "Sherlock Holmes and Dr. Watson investigate the murder of Enoch Drebber in London, deducing that the killer is Jefferson Hope — driven by revenge for the death of his love, Lucy Ferrier, who was coerced into marrying Drebber (and his accomplice Stangerson) by Mormon leaders in Utah decades earlier. Hope tracks both men from Utah to London and kills them, dying himself in the process.",
+      "Sherlock Holmes and Dr. Watson investigate the murder of Enoch Drebber in London, deducing that the killer is Jefferson Hope - driven by revenge for the death of his love, Lucy Ferrier, who was coerced into marrying Drebber (and his accomplice Stangerson) by Mormon leaders in Utah decades earlier. Hope tracks both men from Utah to London and kills them, dying himself in the process.",
     readingTimeMinutes: 180,
   },
   {
@@ -250,7 +250,7 @@ export const books: Book[] = [
     language: "English",
     genre: "Detective Fiction",
     tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
-    coverImage: "https://en.wikipedia.org/wiki/The_Hound_of_the_Baskervilles#/media/File:Cover_(Hound_of_Baskervilles,_1902).jpg",
+    coverImage: "https://en.wikipedia.org/wiki/Special:FilePath/Cover_(Hound_of_Baskervilles,_1902).jpg",
     coverTone: "red",
     pageCount: 154,
     publishedYear: 1901,
@@ -287,77 +287,8 @@ export function getBookBySlug(slug: string): Book | undefined {
   return books.find((b) => b.slug === slug);
 }
 
-export function getBookById(id: string): Book | undefined {
-  return books.find((b) => b.id === id);
-}
-
 export function getAuthorById(id: string): Author | undefined {
   return authors.find((a) => a.id === id);
-}
-
-export function getShelfForBook(bookId: string): ShelfEntry | undefined {
-  return shelves.find((s) => s.bookId === bookId && s.userId === currentUserId);
-}
-
-export function getShelvesByStatus(status: ShelfEntry["status"]): ShelfEntry[] {
-  return shelves.filter((s) => s.status === status && s.userId === currentUserId);
-}
-
-const today = () => new Date().toISOString().slice(0, 10);
-
-// Mutates the in-memory shelves array so shelf moves / reading progress are
-// interactive in a single dev/server process (see docs/DECISIONS.md ADR-002).
-// Not durable across serverless cold starts or multiple instances — swap for
-// ShelfRepository (Prisma) calls once DATABASE_URL is live.
-export function setShelfStatus(bookId: string, status: ShelfEntry["status"]): ShelfEntry {
-  const existing = shelves.find((s) => s.bookId === bookId && s.userId === currentUserId);
-  if (existing) {
-    existing.status = status;
-    if (status === "CURRENTLY_READING" && !existing.startedAt) existing.startedAt = today();
-    if (status === "FINISHED" && !existing.finishedAt) existing.finishedAt = today();
-    return existing;
-  }
-  const created: ShelfEntry = {
-    userId: currentUserId,
-    bookId,
-    status,
-    currentPage: 0,
-    progressPercent: 0,
-    startedAt: status === "CURRENTLY_READING" || status === "FINISHED" ? today() : null,
-    finishedAt: status === "FINISHED" ? today() : null,
-  };
-  shelves.push(created);
-  return created;
-}
-
-export function setReadingProgress(bookId: string, pageNumber: number): ShelfEntry {
-  const book = getBookById(bookId);
-  const pageCount = book?.pageCount ?? pageNumber;
-  const progressPercent = Math.min(100, Math.round((pageNumber / pageCount) * 100));
-  const finished = progressPercent >= 100;
-  const existing = shelves.find((s) => s.bookId === bookId && s.userId === currentUserId);
-  if (existing) {
-    existing.currentPage = pageNumber;
-    existing.progressPercent = progressPercent;
-    if (!existing.startedAt) existing.startedAt = today();
-    if (existing.status === "WANT_TO_READ") existing.status = "CURRENTLY_READING";
-    if (finished) {
-      existing.status = "FINISHED";
-      existing.finishedAt = existing.finishedAt ?? today();
-    }
-    return existing;
-  }
-  const created: ShelfEntry = {
-    userId: currentUserId,
-    bookId,
-    status: finished ? "FINISHED" : "CURRENTLY_READING",
-    currentPage: pageNumber,
-    progressPercent,
-    startedAt: today(),
-    finishedAt: finished ? today() : null,
-  };
-  shelves.push(created);
-  return created;
 }
 
 export function generateBookPages(book: Book): BookPage[] {
@@ -365,13 +296,13 @@ export function generateBookPages(book: Book): BookPage[] {
   const paragraphs = [
     book.summary,
     book.description,
-    "The rest of this chapter is placeholder reading content generated for demo purposes — real book content is stored page-by-page per docs/ARCHITECTURE.md and PRD.md §18 once ingestion is wired.",
+    "The rest of this chapter is placeholder reading content generated for demo purposes - real book content is stored page-by-page per docs/ARCHITECTURE.md and PRD.md §18 once ingestion is wired.",
   ];
   for (let i = 1; i <= Math.min(book.pageCount, 40); i++) {
     pages.push({
       bookId: book.id,
       pageNumber: i,
-      content: `${paragraphs[i % paragraphs.length]} — page ${i} of ${book.pageCount}.`,
+      content: `${paragraphs[i % paragraphs.length]} - page ${i} of ${book.pageCount}.`,
     });
   }
   return pages;

@@ -7,6 +7,7 @@
 // Upserts are keyed on stable IDs/slugs so the script is safe to re-run.
 
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 import {
   authors,
   books,
@@ -79,6 +80,8 @@ async function seedBooksWithPages() {
 }
 
 async function seedDemoUserAndShelves() {
+  const passwordHash = await bcrypt.hash(process.env.DEMO_USER_PASSWORD ?? "readmore-demo", 12);
+
   await prisma.user.upsert({
     where: { id: profile.id },
     update: {
@@ -86,6 +89,7 @@ async function seedDemoUserAndShelves() {
       username: profile.username,
       avatarUrl: profile.avatarUrl || null,
       bio: profile.bio,
+      passwordHash,
     },
     create: {
       id: profile.id,
@@ -94,6 +98,7 @@ async function seedDemoUserAndShelves() {
       email: `${profile.username}@example.com`,
       avatarUrl: profile.avatarUrl || null,
       bio: profile.bio,
+      passwordHash,
     },
   });
 

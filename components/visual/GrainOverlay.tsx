@@ -1,6 +1,6 @@
 "use client";
 
-/** Static, cheap CSS-noise grain overlay — no per-frame JS cost. */
+/** Static, cheap CSS-noise grain overlay - no per-frame JS cost. */
 export function GrainOverlay() {
   return (
     <div

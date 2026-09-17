@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { books } from "@/lib/mock-data";
+import { getCatalog } from "@/server/services/book-service";
 import { siteUrl } from "@/lib/utils";
 
 const STATIC_ROUTES: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }> = [
@@ -10,7 +10,7 @@ const STATIC_ROUTES: Array<{ path: string; priority: number; changeFrequency: Me
   { path: "/signup", priority: 0.3, changeFrequency: "yearly" },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries = STATIC_ROUTES.map(({ path, priority, changeFrequency }) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
+  const { books } = await getCatalog();
   const bookEntries = books.map((book) => ({
     url: `${siteUrl}/books/${book.slug}`,
     lastModified: new Date(),

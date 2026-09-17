@@ -3,13 +3,13 @@
 ## 1. Overview
 
 Bookshelf is a Next.js (App Router) PWA. Server Components render structural/data-bound
-UI; Client Components ("islands") own interactivity — GSAP timelines, WebGL/GLSL
+UI; Client Components ("islands") own interactivity - GSAP timelines, WebGL/GLSL
 backgrounds, Framer Motion transitions. Data layer targets Neon PostgreSQL via Prisma.
 
 ## 2. Layering
 
 ```
-app/            route segments (pages, layouts, route handlers) — RSC by default
+app/            route segments (pages, layouts, route handlers) - RSC by default
 components/     presentational + interactive UI, grouped by domain
 lib/            cross-cutting: auth config, db client, server actions, zod validations
 server/         services (business logic) + repositories (Prisma queries)
@@ -21,7 +21,7 @@ docs/           this documentation set
 
 Dependency direction: `app` → `components` → `lib`/`server`. `server/services` are the
 only layer allowed to call `server/repositories`; components never import Prisma
-directly — they call server actions in `lib/actions`, which call `server/services`.
+directly - they call server actions in `lib/actions`, which call `server/services`.
 
 ## 3. Rendering Strategy
 
@@ -40,8 +40,11 @@ NextAuth.js (Credentials provider for email/password + OAuth providers Google/Gi
 Session stored as JWT in secure, httpOnly cookies. `proxy.ts` (Next.js 16's renamed
 `middleware.ts` entrypoint, same runtime behavior) protects `/dashboard` and `/reader`
 route groups and redirects authenticated users away from `/login`/`/signup`. Passwords
-will be hashed with bcrypt once a real user store replaces the demo credentials
-provider (see ADR-006).
+are hashed with bcrypt (`server/services/auth-service.ts`, 12 salt rounds) against a
+real `User.passwordHash` column - see ADR-007. Both `registerAccount` (signup server
+action) and the Credentials `authorize` callback are rate-limited per-IP
+(`lib/rate-limit.ts`, in-memory/single-instance) against brute-force and
+credential-stuffing attempts.
 
 ```mermaid
 sequenceDiagram
@@ -71,17 +74,22 @@ flowchart LR
 ## 6. Current Implementation Status (MVP UI phase)
 
 - ✅ App shell, routing, design system, brutalist dark UI, motion system.
-- ✅ Prisma schema modeling PRD §18 (not yet migrated against a live Neon instance).
-- ✅ Mock data layer (`lib/mock-data.ts`) powers all pages so UI is fully demonstrable
-  without live credentials.
-- ⏳ NextAuth wiring present but requires real `DATABASE_URL`, `NEXTAUTH_SECRET`,
-  and OAuth client credentials to function end-to-end (see `.env.example`).
-- ⏳ Server actions for shelves/progress are stubbed to operate against mock data;
-  swapping to Prisma repositories is a drop-in change once a DB is provisioned.
-- ⚠️ The mock shelf/reading-progress state in `lib/mock-data.ts` is a single
-  module-level singleton, not scoped per authenticated user. Every session that
-  signs in resolves to the same demo account, so this is consistent for now, but
-  it is not a per-user data store — do not rely on it for isolation once real
-  accounts exist (see ADR-006).
+- ✅ Prisma schema modeling PRD §18, migrated against a live Neon instance (requires
+  `DATABASE_URL` + `npx prisma migrate dev` + `npx prisma generate` per environment).
+- ✅ Real auth: signup/login are Prisma-backed (`server/services/auth-service.ts`,
+  bcrypt) - see ADR-007. `.env.example` documents required secrets.
+- ✅ Book/Author/BookPage domain is Prisma-backed (`server/services/book-service.ts`,
+  `server/repositories/book-repository.ts`) - see ADR-009. Every book-listing page
+  reads live DB content, and the reader serves real imported `BookPage` rows when
+  present, falling back to placeholder text only for books with none.
+- ✅ Shelf/reading-progress domain is Prisma-backed (`server/services/shelf-service.ts`,
+  `server/repositories/shelf-repository.ts`), scoped per authenticated `userId` -
+  see ADR-010. `lib/actions/shelf.ts` requires a real session before mutating.
+- ⏳ `ReadingHistory` (per-view-event history) has a Prisma model but no write path
+  yet; not required by any current feature.
 
-See [DECISIONS.md](DECISIONS.md) for the rationale on mock-data-first delivery.
+See [DECISIONS.md](DECISIONS.md) for the rationale on mock-data-first delivery and
+ADR-009/ADR-010 for the book and shelf domain migrations off it. As of ADR-010,
+`lib/mock-data.ts` only backs the User-domain demo-profile display fallback
+(`profile.favoriteGenres`) - every book/author/shelf/progress read and write goes
+through Prisma.

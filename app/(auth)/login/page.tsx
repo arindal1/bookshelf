@@ -7,7 +7,7 @@ export default function LoginPage() {
       <h1 className="font-display text-4xl">Sign in</h1>
       <p className="mt-2 text-sm text-ink-muted">Continue reading where you stopped.</p>
       <p className="font-mono-label mt-2 text-[10px] text-ink-muted">
-        Demo: any email, password <code>readmore-demo</code>
+        Demo: m.arlen@example.com, password <code>readmore-demo</code> (after seeding)
       </p>
       <div className="mt-8">
         <AuthForm mode="login" />

@@ -1,7 +1,7 @@
-# DESIGN.md — Bookshelf Design System
+# DESIGN.md - Bookshelf Design System
 
 **Direction:** Data-Brutalist × Neobrutalism hybrid, dark-dominant.
-**Thesis:** *"A library run by a machine that respects the reader — raw structure,
+**Thesis:** *"A library run by a machine that respects the reader - raw structure,
 exposed data (page counts, progress, timestamps), zero decoration that doesn't
 carry information."*
 
@@ -17,19 +17,19 @@ the reticle/coordinate motifs; neobrutalist hard-edge cards for book covers.
 | `--surface-raised` | `#141416` | cards, panels |
 | `--ink` | `#F2EFE9` | primary text |
 | `--ink-muted` | `#8B8B90` | secondary text, captions |
-| `--accent` | `#C6F84E` | acid lime — signal color, used sparingly (progress, active state, focus) |
+| `--accent` | `#C6F84E` | acid lime - signal color, used sparingly (progress, active state, focus) |
 | `--line` | `#2A2A2E` | hairline borders (2px solid, brutalist hard edge) |
 | `--danger` | `#FF4D4D` | destructive/error |
 
 Tokens are declared in `app/globals.css` under `:root` and bound into Tailwind v4's
-`@theme inline` block (this project has no `tailwind.config.ts` — Tailwind v4 is
+`@theme inline` block (this project has no `tailwind.config.ts` - Tailwind v4 is
 CSS-first). No gradients on large surfaces. No pure `#000`/`#fff`.
 
 ## 2. Typography
 
-- **Display:** Space Grotesk (variable) — headings, oversized numerals, section markers.
-- **Text:** Inter Tight — body, UI labels.
-- **Mono:** JetBrains Mono — metadata (page counts, progress %, timestamps, coordinates).
+- **Display:** Space Grotesk (variable) - headings, oversized numerals, section markers.
+- **Text:** Inter Tight - body, UI labels.
+- **Mono:** JetBrains Mono - metadata (page counts, progress %, timestamps, coordinates).
 
 Scale uses `clamp()` fluid sizing; display tracking `-0.03em`, leading `0.9`. Body
 leading `1.6`, measure 65ch.
@@ -37,12 +37,12 @@ leading `1.6`, measure 65ch.
 ## 3. Layout & Composition
 
 - 12-col editorial grid with visible hairline column rules on desktop (`.grid-editorial`).
-- Hard 2px borders (`border: 2px solid var(--line)`) instead of soft shadows — brutalist
+- Hard 2px borders (`border: 2px solid var(--line)`) instead of soft shadows - brutalist
   card language. No `shadow-lg`, no `backdrop-blur` as universal chrome.
-- Oversized numerals (`01 — 02 — 03`) as section markers instead of icons.
+- Oversized numerals (`01 - 02 - 03`) as section markers instead of icons.
 - Asymmetric hero: type-led, oversized headline bleeding toward viewport edge.
 
-## 4. The Signature Interaction — Generative GLSL Field
+## 4. The Signature Interaction - Generative GLSL Field
 
 A full-viewport WebGL canvas (`components/visual/GLBackground.tsx`, React Three Fiber)
 renders a simplex-noise flow field in `--surface`/`--accent` duotone, sitting behind the
@@ -77,7 +77,7 @@ GLSL freezes to static frame).
 - **ProgressBar:** 4px hard-edged bar, `--accent` fill, mono percentage label right-aligned.
 - **Nav:** text-link nav, no pill buttons, active route underlined with `--accent`.
 - **Buttons:** rectangular, 2px border, no radius, hard hover invert (bg/fg swap, 0ms
-  easing — brutalist snap, not a smooth fade).
+  easing - brutalist snap, not a smooth fade).
 
 ## 7. Accessibility
 

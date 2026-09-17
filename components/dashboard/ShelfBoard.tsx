@@ -1,6 +1,8 @@
 import { BookGrid } from "@/components/books/BookGrid";
 import { SectionHeader } from "@/components/dashboard/SectionHeader";
-import { books, getShelvesByStatus } from "@/lib/mock-data";
+import { auth } from "@/lib/auth";
+import { getCatalog } from "@/server/services/book-service";
+import { getShelfMapForUser } from "@/server/services/shelf-service";
 import type { ShelfStatus } from "@/types";
 
 const BOARDS: { status: ShelfStatus; label: string }[] = [
@@ -10,15 +12,20 @@ const BOARDS: { status: ShelfStatus; label: string }[] = [
   { status: "FINISHED", label: "Finished" },
 ];
 
-export function ShelfBoard() {
+export async function ShelfBoard() {
+  const session = await auth();
+  if (!session?.user?.id) return null;
+
+  const [{ books, authors }, shelvesByBookId] = await Promise.all([
+    getCatalog(),
+    getShelfMapForUser(session.user.id),
+  ]);
+
   return (
     <div className="space-y-14">
       {BOARDS.map((board, i) => {
-        const entries = getShelvesByStatus(board.status);
-        if (entries.length === 0) return null;
-        const shelfBooks = entries
-          .map((e) => books.find((b) => b.id === e.bookId))
-          .filter((b): b is NonNullable<typeof b> => Boolean(b));
+        const shelfBooks = books.filter((b) => shelvesByBookId.get(b.id)?.status === board.status);
+        if (shelfBooks.length === 0) return null;
 
         return (
           <section key={board.status}>
@@ -27,7 +34,7 @@ export function ShelfBoard() {
               label="Shelf"
               title={board.label}
             />
-            <BookGrid books={shelfBooks} showShelf />
+            <BookGrid books={shelfBooks} authors={authors} shelvesByBookId={shelvesByBookId} />
           </section>
         );
       })}

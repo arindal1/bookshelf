@@ -10,7 +10,7 @@
 //   npx tsx scripts/import-book-content.ts <slug> [path/to/file.txt]
 //
 // If the file path is omitted, defaults to content/books/<slug>.txt.
-// The book (by slug) must already exist — run `npm run db:seed` first, or
+// The book (by slug) must already exist - run `npm run db:seed` first, or
 // create the Book row another way. Book.pageCount is updated to match the
 // number of pages actually imported, and any stale pages beyond that count
 // (e.g. left over from placeholder seeding) are deleted.

@@ -7,11 +7,11 @@ import { siteUrl } from "@/lib/utils";
 import "./globals.css";
 
 const title = "Bookshelf";
-const description = "A personal digital library — read, track, and discover books in the browser.";
+const description = "A personal digital library - read, track, and discover books in the browser.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: title, template: `%s — ${title}` },
+  title: { default: title, template: `%s - ${title}` },
   description,
   applicationName: title,
   robots: { index: true, follow: true },

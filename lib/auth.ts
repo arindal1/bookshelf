@@ -1,29 +1,15 @@
-import { timingSafeEqual } from "node:crypto";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
-import { profile as mockProfile } from "@/lib/mock-data";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { verifyCredentials } from "@/server/services/auth-service";
 
-// Auth wired per PRD §16, not yet backed by Neon — see docs/DECISIONS.md
-// ADR-002 and ADR-005. Credentials provider validates against the mock
-// reader account so the demo login flow works without a database. Swap the
-// `authorize` body for a Prisma user lookup + bcrypt compare once
-// DATABASE_URL is set.
-//
-// SECURITY: this previously accepted ANY non-empty password for ANY email,
-// which is an authentication bypass. It now requires an exact match against
-// DEMO_USER_PASSWORD (see .env.example) so the demo account is still gated by
-// a real credential check — see docs/DECISIONS.md ADR-006.
-const DEMO_PASSWORD = process.env.DEMO_USER_PASSWORD ?? "readmore-demo";
-
-function safeEquals(a: string, b: string): boolean {
-  const bufA = Buffer.from(a);
-  const bufB = Buffer.from(b);
-  if (bufA.length !== bufB.length) return false;
-  return timingSafeEqual(bufA, bufB);
-}
-
+// Auth wired per PRD §16. Credentials provider is Prisma-backed - see
+// docs/DECISIONS.md ADR-006 ("Superseded once authorize is swapped for a
+// Prisma user lookup + bcrypt compare against real accounts"). Requires
+// DATABASE_URL to be provisioned and migrated (ADR-002); run
+// `npx prisma db seed` to create the demo account with DEMO_USER_PASSWORD.
 const providers = [
   Credentials({
     name: "Email",
@@ -31,16 +17,18 @@ const providers = [
       email: { label: "Email", type: "email" },
       password: { label: "Password", type: "password" },
     },
-    async authorize(credentials) {
+    async authorize(credentials, request) {
       const email = credentials?.email;
       const password = credentials?.password;
       if (typeof email !== "string" || typeof password !== "string" || !email || !password) {
         return null;
       }
-      if (!safeEquals(password, DEMO_PASSWORD)) {
-        return null;
-      }
-      return { id: mockProfile.id, name: mockProfile.name, email };
+
+      const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+      const limit = checkRateLimit(`login:${ip}`, { max: 10, windowMs: 15 * 60 * 1000 });
+      if (!limit.allowed) return null;
+
+      return verifyCredentials(email, password);
     },
   }),
 ];
@@ -67,4 +55,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers,
   session: { strategy: "jwt" },
   pages: { signIn: "/login" },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.username = (user as { username?: string }).username;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token.id) session.user.id = token.id;
+      if (token.username) session.user.username = token.username;
+      return session;
+    },
+  },
 });

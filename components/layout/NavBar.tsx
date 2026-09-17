@@ -24,13 +24,23 @@ export function NavBar() {
 
   const authAction =
     status === "authenticated" && session ? (
-      <button
-        type="button"
-        onClick={() => signOut({ callbackUrl: "/" })}
-        className="font-mono-label w-full border-2 border-line px-4 py-2.5 text-xs text-ink-muted hover:border-accent hover:text-accent sm:w-auto"
-      >
-        Sign out
-      </button>
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
+        {session.user.username && (
+          <Link
+            href={`/profile/${session.user.username}`}
+            className="font-mono-label text-xs text-ink-muted hover:text-ink"
+          >
+            Profile
+          </Link>
+        )}
+        <button
+          type="button"
+          onClick={() => signOut({ callbackUrl: "/" })}
+          className="font-mono-label w-full border-2 border-line px-4 py-2.5 text-xs text-ink-muted hover:border-accent hover:text-accent sm:w-auto"
+        >
+          Sign out
+        </button>
+      </div>
     ) : (
       <Link
         href="/login"

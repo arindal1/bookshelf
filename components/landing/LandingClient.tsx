@@ -1,20 +1,21 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { BookCover } from "@/components/ui/BookCover";
 import { SectionMarker } from "@/components/ui/HairlineRule";
-import { books, getAuthorById } from "@/lib/mock-data";
+import type { Author, Book } from "@/types";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export function LandingClient() {
+export function LandingClient({ trending, authors }: { trending: Book[]; authors: Author[] }) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const authorsById = useMemo(() => new Map(authors.map((a) => [a.id, a])), [authors]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -35,8 +36,6 @@ export function LandingClient() {
     return () => ctx.revert();
   }, []);
 
-  const trending = books.slice(0, 6);
-
   return (
     <div ref={rootRef}>
       {/* Hero */}
@@ -52,7 +51,7 @@ export function LandingClient() {
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-muted">
             Build your own shelf, read entire books in the browser, and pick up
-            exactly where you left off — no app, no PDF, no friction.
+            exactly where you left off - no app, no PDF, no friction.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/signup">
@@ -70,7 +69,7 @@ export function LandingClient() {
         <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
           {[...trending, ...trending].map((b, i) => (
             <span key={`${b.id}-${i}`} className="font-mono-label text-xs text-ink-muted">
-              {b.title} · {getAuthorById(b.authorId)?.name}
+              {b.title} · {authorsById.get(b.authorId)?.name}
             </span>
           ))}
         </div>
@@ -91,10 +90,10 @@ export function LandingClient() {
                 data-reveal
                 className="group block border-2 border-line p-3 hover:border-accent"
               >
-                <BookCover title={book.title} tone={book.coverTone} />
+                <BookCover title={book.title} tone={book.coverTone} src={book.coverImage} />
                 <p className="mt-3 font-display text-sm group-hover:text-accent">{book.title}</p>
                 <p className="font-mono-label text-[10px] text-ink-muted">
-                  {getAuthorById(book.authorId)?.name}
+                  {authorsById.get(book.authorId)?.name}
                 </p>
               </Link>
             ))}
@@ -114,7 +113,7 @@ export function LandingClient() {
             {
               n: "03",
               title: "Shelves, not folders",
-              body: "Want to read, currently reading, finished, on hold — moved freely, tracked automatically.",
+              body: "Want to read, currently reading, finished, on hold - moved freely, tracked automatically.",
             },
             {
               n: "04",

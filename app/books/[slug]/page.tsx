@@ -6,8 +6,11 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import { Tag } from "@/components/ui/Tag";
 import { SectionMarker } from "@/components/ui/HairlineRule";
 import { ShelfSelector } from "@/components/books/ShelfSelector";
+import { AuthorPhoto } from "@/components/ui/AuthorPhoto";
 import { formatMinutes, cn } from "@/lib/utils";
-import { getAuthorById, getBookBySlug, getShelfForBook } from "@/lib/mock-data";
+import { auth } from "@/lib/auth";
+import { getBookDetails } from "@/server/services/book-service";
+import { getShelfForUserAndBook } from "@/server/services/shelf-service";
 
 export default async function BookDetailsPage({
   params,
@@ -15,17 +18,19 @@ export default async function BookDetailsPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const book = getBookBySlug(slug);
-  if (!book) notFound();
+  const [result, session] = await Promise.all([getBookDetails(slug), auth()]);
+  if (!result) notFound();
 
-  const author = getAuthorById(book.authorId);
-  const shelf = getShelfForBook(book.id);
+  const { book, author } = result;
+  const shelf = session?.user?.id
+    ? await getShelfForUserAndBook(session.user.id, book.id)
+    : undefined;
 
   return (
     <div className="px-6 py-16 md:px-10">
       <div className="mx-auto grid max-w-350 gap-12 md:grid-cols-[320px_1fr]">
         <div>
-          <BookCover title={book.title} tone={book.coverTone} className="max-w-sm" />
+          <BookCover title={book.title} tone={book.coverTone} src={book.coverImage} className="max-w-sm" />
           <div className="mt-6 space-y-3">
             <Link href={`/reader/${book.id}`}>
               <Button className="w-full">
@@ -72,7 +77,10 @@ export default async function BookDetailsPage({
             {author && (
               <div>
                 <p className="font-mono-label mb-2 text-[10px] text-ink-muted">About the author</p>
-                <p className="max-w-[65ch] leading-relaxed text-ink/90">{author.bio}</p>
+                <div className="flex gap-4">
+                  <AuthorPhoto src={author.photoUrl} alt={author.name} className="shrink-0" />
+                  <p className="max-w-[65ch] leading-relaxed text-ink/90">{author.bio}</p>
+                </div>
               </div>
             )}
           </div>

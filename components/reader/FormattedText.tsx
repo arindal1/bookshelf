@@ -1,11 +1,15 @@
 import { Fragment } from "react";
 
 // Splits book page content on:
-// "..."   -> dialogue
-// *...*   -> note/footnote
-// &...&   -> heading
-// %...%   -> monospace/code
-const FORMAT_PATTERN = /("[^"]+")|(\*[^*]+\*)|(&[^&]+&)|(%[^%]+%)/g;
+// "..." or “...”   -> dialogue
+// *...*             -> note/footnote
+// &...&             -> heading
+// %...%             -> monospace/code
+//
+// Each pattern excludes newlines so a stray, unpaired delimiter (e.g. a
+// footnote marker or "* * *" scene break in real imported manuscript text)
+// can never swallow multiple paragraphs into one giant match.
+const FORMAT_PATTERN = /("[^"\n]+"|“[^”\n]+”)|(\*[^*\n]+\*)|(&[^&\n]+&)|(%[^%\n]+%)/g;
 
 export function FormattedText({ text }: { text: string }) {
   const nodes: React.ReactNode[] = [];
@@ -24,9 +28,9 @@ export function FormattedText({ text }: { text: string }) {
     }
 
     if (match[1]) {
-      // "Dialogue"
+      // "Dialogue" / “Dialogue”
       nodes.push(
-        <span key={key++} className="font-medium">
+        <span key={key++} className="font-medium text-accentmuted">
           {match[1]}
         </span>
       );

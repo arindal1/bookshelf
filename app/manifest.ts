@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Bookshelf",
     short_name: "Bookshelf",
-    description: "A personal digital library — read, track, and discover books in the browser.",
+    description: "A personal digital library - read, track, and discover books in the browser.",
     start_url: "/",
     scope: "/",
     display: "standalone",

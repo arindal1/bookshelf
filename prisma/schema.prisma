@@ -1,5 +1,5 @@
 // Prisma schema modeling PRD.md §18. Not yet migrated against a live Neon
-// instance — see docs/DECISIONS.md ADR-002. UI runs against lib/mock-data.ts
+// instance - see docs/DECISIONS.md ADR-002. UI runs against lib/mock-data.ts
 // until DATABASE_URL is provisioned and `npx prisma migrate dev` is run.
 
 generator client {

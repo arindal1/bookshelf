@@ -1,19 +1,26 @@
 import { BookGrid } from "@/components/books/BookGrid";
 import { SectionHeader } from "@/components/dashboard/SectionHeader";
-import { books, getShelvesByStatus } from "@/lib/mock-data";
+import { auth } from "@/lib/auth";
+import { getCatalog } from "@/server/services/book-service";
+import { getShelvesByStatusForUser } from "@/server/services/shelf-service";
 
-export function ContinueReadingRail() {
-  const reading = getShelvesByStatus("CURRENTLY_READING");
-  const shelfBooks = reading
-    .map((e) => books.find((b) => b.id === e.bookId))
-    .filter((b): b is NonNullable<typeof b> => Boolean(b));
+export async function ContinueReadingRail() {
+  const session = await auth();
+  if (!session?.user?.id) return null;
+
+  const reading = await getShelvesByStatusForUser(session.user.id, "CURRENTLY_READING");
+  if (reading.length === 0) return null;
+
+  const { books, authors } = await getCatalog();
+  const shelvesByBookId = new Map(reading.map((s) => [s.bookId, s]));
+  const shelfBooks = books.filter((b) => shelvesByBookId.has(b.id));
 
   if (shelfBooks.length === 0) return null;
 
   return (
     <section>
       <SectionHeader number="01" label="Continue" title="Pick up where you left off" />
-      <BookGrid books={shelfBooks} showShelf />
+      <BookGrid books={shelfBooks} authors={authors} shelvesByBookId={shelvesByBookId} />
     </section>
   );
 }

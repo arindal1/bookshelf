@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 
 // Self-hosted (latin-subset variable woff2) instead of next/font/google: this
 // build environment's Node TLS stack gets reset connecting to
-// fonts.googleapis.com (proxy/DPI interference — confirmed via direct fetch
+// fonts.googleapis.com (proxy/DPI interference - confirmed via direct fetch
 // test), even though the same host is reachable outside Node. Self-hosting
 // also removes an external network dependency from the production build.
 export const display = localFont({

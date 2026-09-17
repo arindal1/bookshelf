@@ -13,7 +13,7 @@ const VERTEX = /* glsl */ `
 `;
 
 // Pixelated, domain-warped fbm "smoke" field, quantized to hard posterized
-// bands in --surface / --accent. No soft gradients — brutalist duotone only.
+// bands in --surface / --accent. No soft gradients - brutalist duotone only.
 // Cursor/touch position stirs the field with a local swirl; scroll velocity
 // advects it. See docs/DESIGN.md §4 for the design rationale.
 const FRAGMENT = /* glsl */ `
@@ -51,7 +51,7 @@ const FRAGMENT = /* glsl */ `
     return 130.0 * dot(m, g);
   }
 
-  // Fractal brownian motion — layered noise octaves give the roiling,
+  // Fractal brownian motion - layered noise octaves give the roiling,
   // billowing structure of smoke instead of a single flat noise plane.
   float fbm(vec2 p) {
     float sum = 0.0;
@@ -65,7 +65,7 @@ const FRAGMENT = /* glsl */ `
   }
 
   void main() {
-    // Quantize screen position to a coarse pixel grid before sampling noise —
+    // Quantize screen position to a coarse pixel grid before sampling noise -
     // the chunky, pixel-sim look the brutalist direction calls for.
     vec2 grid = floor(gl_FragCoord.xy / uPixelSize) * uPixelSize;
     vec2 uv = grid / uResolution;
@@ -95,7 +95,7 @@ const FRAGMENT = /* glsl */ `
     density = density * 0.5 + 0.5;
     density += smoothstep(0.75, 0.0, distToMouse) * 0.12;
 
-    // Posterize into hard bands — no smooth gradients, matching the
+    // Posterize into hard bands - no smooth gradients, matching the
     // hard-edge/no-soft-shadow brutalist component language.
     const float bands = 5.0;
     float posterized = floor(clamp(density, 0.0, 1.0) * bands) / bands;

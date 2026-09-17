@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-// PNG equivalent of app/icon.svg — apple-touch-icon requires a raster image.
+// PNG equivalent of app/icon.svg - apple-touch-icon requires a raster image.
 export default function AppleIcon() {
   return new ImageResponse(
     (

@@ -44,7 +44,7 @@ export function ReaderShell({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumber, totalPages]);
 
-  // Debounced auto-save of reading progress — see docs/ARCHITECTURE.md §5.
+  // Debounced auto-save of reading progress - see docs/ARCHITECTURE.md §5.
   useEffect(() => {
     const t = window.setTimeout(() => {
       startTransition(() => {
@@ -85,7 +85,7 @@ export function ReaderShell({
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <p className="text-lg leading-[1.7] text-ink/90">
+            <p className="whitespace-pre-wrap text-lg leading-[1.7] text-ink/90">
               {currentPage ? <FormattedText text={currentPage.content} /> : null}
             </p>
           </motion.article>

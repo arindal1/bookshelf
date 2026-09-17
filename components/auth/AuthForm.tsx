@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { registerAccount } from "@/lib/actions/auth";
 
 export function AuthForm({ mode }: { mode: "login" | "signup" }) {
   const [pending, setPending] = useState(false);
@@ -19,14 +20,31 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
         setPending(true);
         setError(null);
         const form = new FormData(e.currentTarget);
+        const email = String(form.get("email") ?? "");
+        const password = String(form.get("password") ?? "");
+
+        if (mode === "signup") {
+          const username = String(form.get("username") ?? "");
+          const result = await registerAccount({ username, email, password });
+          if (!result.ok) {
+            setPending(false);
+            setError(result.error);
+            return;
+          }
+        }
+
         const result = await signIn("credentials", {
-          email: form.get("email"),
-          password: form.get("password"),
+          email,
+          password,
           redirect: false,
         });
         setPending(false);
         if (result?.error) {
-          setError("Could not sign in. Check your details and try again.");
+          setError(
+            mode === "signup"
+              ? "Account created, but sign-in failed. Try logging in."
+              : "Could not sign in. Check your details and try again."
+          );
           return;
         }
         router.push("/dashboard");
