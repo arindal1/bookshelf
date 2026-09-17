@@ -1,16 +1,19 @@
 import NextAuth from "next-auth";
+import type { Provider } from "next-auth/providers";
+import type { Session } from "next-auth";
+import type { JWT } from "next-auth/jwt";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { verifyCredentials } from "@/server/services/auth-service";
 
-// Auth wired per PRD §16. Credentials provider is Prisma-backed - see
+// Auth wired per PRD §16. Credentials provider is Prisma-backed — see
 // docs/DECISIONS.md ADR-006 ("Superseded once authorize is swapped for a
 // Prisma user lookup + bcrypt compare against real accounts"). Requires
 // DATABASE_URL to be provisioned and migrated (ADR-002); run
 // `npx prisma db seed` to create the demo account with DEMO_USER_PASSWORD.
-const providers = [
+const providers: Provider[] = [
   Credentials({
     name: "Email",
     credentials: {
@@ -63,7 +66,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: { session: Session; token: JWT }) {
       if (token.id) session.user.id = token.id;
       if (token.username) session.user.username = token.username;
       return session;
