@@ -51,8 +51,9 @@ async function seedBooksWithPages() {
         language: book.language,
         genre: book.genre,
         coverImage: book.coverImage || null,
-        pageCount: book.pageCount,
-        publishedYear: book.publishedYear,
+        // Deliberately NOT updating pageCount here - it's owned by
+        // scripts/import-book-content.ts once real content is imported, and
+        // re-seeding must not clobber it back to the placeholder count.
       },
       create: {
         id: book.id,
@@ -68,6 +69,14 @@ async function seedBooksWithPages() {
         publishedYear: book.publishedYear,
       },
     });
+
+    // Only seed placeholder pages if this book has no pages yet. Re-running
+    // `npx prisma db seed` after real content was imported via
+    // scripts/import-book-content.ts must never overwrite it with generated
+    // placeholder text (this was silently happening via unconditional
+    // upserts, reintroducing placeholder pages on every seed run).
+    const existingPageCount = await prisma.bookPage.count({ where: { bookId: book.id } });
+    if (existingPageCount > 0) continue;
 
     for (const page of generateBookPages(book)) {
       await prisma.bookPage.upsert({

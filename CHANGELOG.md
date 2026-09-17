@@ -3,7 +3,26 @@
 All notable changes to this project are documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.1]
+
+### Fixed
+
+- `prisma/seed.ts`'s `seedBooksWithPages()` unconditionally upserted
+  `generateBookPages()` placeholder content and `pageCount` on every seed run,
+  silently overwriting real content previously imported via
+  `scripts/import-book-content.ts` - the reader would show placeholder text
+  again after any later `npx prisma db seed`. It now skips placeholder-page
+  seeding entirely for books that already have `BookPage` rows, and no longer
+  touches `pageCount` on update (owned by the import script once real content
+  exists).
+- Auth redirects (post-login/signup, proxy.ts protected-route bounce) would
+  sometimes land on `http://localhost:3000` instead of the deployed origin.
+  Auth.js only trusts `AUTH_URL`/`NEXTAUTH_URL` for internal callback/redirect
+  URLs unless the request's Host header is explicitly trusted; added
+  `trustHost: true` to the `NextAuth()` config in `lib/auth.ts`.
+
 ## [0.3.0]
+
 
 ### Fixed
 
