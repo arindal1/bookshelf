@@ -6,6 +6,7 @@
   --surface-sunken: #050506;
   --ink: #f2efe9;
   --ink-muted: #8b8b90;
+  --ink-dark: #22201d;
   --accent: #c6f84e;
   --accent-muted: #adce62;
   --accent-ink: #0a0a0b;
@@ -19,6 +20,7 @@
   --color-surface-sunken: var(--surface-sunken);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
+  --color-ink-dark: var(--ink-dark);
   --color-accent: var(--accent);
   --color-accent-muted: var(--accent-muted);
   --color-accent-ink: var(--accent-ink);
@@ -32,6 +34,37 @@
 
 * {
   border-color: var(--line);
+}
+
+/* Reader-only palettes: softer, lower-contrast than the site's brutalist
+   dark/lime tokens - optimized for sustained reading comfort. Scoped via
+   [data-reader-theme] on the ReaderShell root so the rest of the app is
+   unaffected. */
+[data-reader-theme="dark"] {
+  color-scheme: dark;
+  --surface: #1a1a1d;
+  --surface-raised: #202023;
+  --surface-sunken: #131315;
+  --ink: #e8e4d9;
+  --ink-muted: #9a968c;
+  --accent: #b4d68a;
+  --accent-muted: #96b87a;
+  --accent-ink: #12140f;
+  --line: #33322e;
+}
+
+[data-reader-theme="light"] {
+  color-scheme: light;
+  --surface: #f5f0e6;
+  --surface-raised: #ece5d6;
+  --surface-sunken: #e3dac8;
+  --ink: #3a362e;
+  --ink-dark: #22201d;
+  --ink-muted: #7a756a;
+  --accent: #6f8a63;
+  --accent-muted: #8ba17d;
+  --accent-ink: #f5f0e6;
+  --line: #ddd4c0;
 }
 
 html {

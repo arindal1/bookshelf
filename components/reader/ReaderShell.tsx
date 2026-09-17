@@ -9,6 +9,9 @@ import { formatMinutes } from "@/lib/utils";
 import { saveReadingProgress } from "@/lib/actions/shelf";
 import type { Book, BookPage } from "@/types";
 
+const READER_THEME_KEY = "reader-theme";
+type ReaderTheme = "dark" | "light";
+
 export function ReaderShell({
   book,
   pages,
@@ -19,6 +22,7 @@ export function ReaderShell({
   initialPage?: number;
 }) {
   const [pageNumber, setPageNumber] = useState(initialPage);
+  const [theme, setTheme] = useState<ReaderTheme>("dark");
   const hudRef = useRef<HTMLDivElement>(null);
   const [, startTransition] = useTransition();
   const totalPages = pages.length;
@@ -31,6 +35,27 @@ export function ReaderShell({
   const goTo = (n: number) => {
     setPageNumber(Math.max(1, Math.min(totalPages, n)));
   };
+
+  // Restore saved theme preference (client-only; avoids SSR mismatch).
+  useEffect(() => {
+    const saved = window.localStorage.getItem(READER_THEME_KEY);
+    if (saved === "dark" || saved === "light") setTheme(saved);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      window.localStorage.setItem(READER_THEME_KEY, next);
+      return next;
+    });
+  };
+
+  // Scroll to the top of the page whenever the reader navigates - see
+  // user request: next/previous page should never leave the reader mid-scroll.
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  }, [pageNumber]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -64,13 +89,23 @@ export function ReaderShell({
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface">
+    <div data-reader-theme={theme} className="flex min-h-screen flex-col bg-surface transition-colors duration-300">
       <div ref={hudRef} className="border-b-2 border-line px-6 py-4 md:px-10">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-6">
           <p className="font-mono-label text-[10px] text-ink-muted">{book.title}</p>
-          <p className="font-mono-label text-[10px] tabular-nums text-ink-muted">
-            {minutesLeft > 0 ? `${formatMinutes(minutesLeft)} left` : "Finished"}
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="font-mono-label text-[10px] tabular-nums text-ink-muted">
+              {minutesLeft > 0 ? `${formatMinutes(minutesLeft)} left` : "Finished"}
+            </p>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} reading theme`}
+              className="font-mono-label border-2 border-line px-2 py-1 text-[10px] text-ink-muted hover:border-accent hover:text-accent"
+            >
+              {theme === "dark" ? "Light mode" : "Dark mode"}
+            </button>
+          </div>
         </div>
         <ProgressBar percent={percent} className="mx-auto mt-3 max-w-3xl" />
       </div>
@@ -86,7 +121,7 @@ export function ReaderShell({
             className="max-w-2xl"
           >
             <p className="whitespace-pre-wrap text-lg leading-[1.7] text-ink/90">
-              {currentPage ? <FormattedText text={currentPage.content} /> : null}
+              {currentPage ? <FormattedText text={currentPage.content} theme={theme} /> : null}
             </p>
           </motion.article>
         </AnimatePresence>
