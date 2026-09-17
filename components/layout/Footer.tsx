@@ -14,7 +14,7 @@ export function Footer() {
           <div className="font-mono-label flex gap-6 text-[10px] text-ink-muted">
             <span>© 2026</span>
             <span>BUILT ON NEXT.JS</span>
-            <span>DATA: NEON POSTGRESQL</span>
+            <span>Arindal Char</span>
           </div>
         </div>
         <HairlineRule className="mt-8" />

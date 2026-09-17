@@ -12,70 +12,104 @@ export const authors: Author[] = [
     name: "Herman Melville",
     bio: "Herman Melville (born Melvill; August 1, 1819 – September 28, 1891) was an American writer of the American Renaissance period. Among his best-known works are Moby-Dick (1851), Typee (1846), a romanticized account of his experiences in Polynesia, and Billy Budd, Sailor, a posthumously published novella. At the time of his death, Melville was not well known to the public, but 1919, the centennial of his birth, was the starting point of a Melville revival. Moby-Dick would eventually be considered one of the Great American Novels.",
     country: "American",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Herman_Melville_by_Joseph_O_Eaton.jpg/250px-Herman_Melville_by_Joseph_O_Eaton.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Herman_Melville_by_Joseph_O_Eaton.jpg/250px-Herman_Melville_by_Joseph_O_Eaton.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_3",
     name: "Franz Kafka",
     bio: "Franz Kafka (3 July 1883 – 3 June 1924) was a German-language Jewish Czech writer and novelist born in Prague, in the Austro-Hungarian Empire. Widely regarded as a major figure of 20th-century literature, his works fuse elements of realism and the fantastique, and typically feature isolated protagonists facing bizarre or surreal predicaments and incomprehensible bureaucratic powers. He is also celebrated for his brief fables and aphorisms, which frequently incorporated comedic elements alongside the darker themes of his longer works. His work has widely influenced artists, philosophers, composers, filmmakers, literary historians, religious scholars, and cultural theorists.",
     country: "Czech",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Franz_Kafka%2C_1923.jpg/250px-Franz_Kafka%2C_1923.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Franz_Kafka%2C_1923.jpg/250px-Franz_Kafka%2C_1923.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_4",
     name: "Mary Shelley",
     bio: "Mary Wollstonecraft Shelley (née Godwin; 30 August 1797 – 1 February 1851) was an English novelist who wrote the Gothic novel Frankenstein; or, The Modern Prometheus (1818), which is considered an early example of science fiction. She also edited and promoted the works of her husband, the Romantic poet and philosopher Percy Bysshe Shelley. Her father was the political philosopher William Godwin and her mother was the philosopher and women's rights advocate Mary Wollstonecraft.",
     country: "England",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Mary_Wollstonecraft_Shelley_Rothwell.tif/lossy-page1-250px-Mary_Wollstonecraft_Shelley_Rothwell.tif.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Mary_Wollstonecraft_Shelley_Rothwell.tif/lossy-page1-250px-Mary_Wollstonecraft_Shelley_Rothwell.tif.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_5",
     name: "Arthur Ignatius Conan Doyle",
     bio: "Sir Arthur Ignatius Conan Doyle (22 May 1859 – 7 July 1930) was a British writer and physician. He is best known for his four novels and fifty-six short stories about the fictional consulting detective Sherlock Holmes and his assistant Dr. Watson, which are milestones in crime fiction, and for his first work featuring Professor Challenger, The Lost World (1912), which gave its name to a subgenre of speculative fiction. He was a prolific writer who produced over 200 stories and articles, four volumes of poetry, and a number of works for the stage. He was knighted by King Edward VII in the 1902 Coronation Honours.",
     country: "Scotland",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png/250px-Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png/250px-Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_6",
     name: "William Shakespeare",
     bio: "William Shakespeare (c. 23 April 1564[b] – 23 April 1616)[c] was an English playwright, poet and actor. He is widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist. He is often called England's national poet and the 'Bard of Avon' or simply 'the Bard'. His extant works, including collaborations, consist of some 39 plays, 154 sonnets, 3 long narrative poems and a few other verses, some of uncertain authorship. His plays have been translated into every major living language and are performed more often than those of any other playwright. Shakespeare remains arguably the most influential writer in the English language, and his works continue to be studied and reinterpreted.",
     country: "England",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg/250px-William_Shakespeare_by_John_Taylor%2C_edited.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg/250px-William_Shakespeare_by_John_Taylor%2C_edited.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_7",
     name: "Homer",
     bio: "Homer (possibly born c. 8th century BC) was an ancient Greek poet who is traditionally credited as the author of the Iliad and the Odyssey, two epic poems that are foundational works of ancient Greek literature. Homer was highly revered in ancient Greek society and is considered one of the most influential authors in history. Today, the question of Homer's identity and existence-dubbed the 'Homeric Question' -continues to be debated, and scholars generally regard the two poems as the works of separate authors.",
     country: "Greece",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg/250px-Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg/250px-Homer_At_the_British_Museum_2024_%283x4_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_8",
     name: "Cormac McCarthy",
     bio: "Cormac McCarthy (born Charles Joseph McCarthy Jr.; July 20, 1933 – June 13, 2023) was an American author who wrote twelve novels, two plays, five screenplays, and three short stories, spanning the Western, post-apocalyptic, and Southern Gothic genres. His works often include graphic depictions of violence, and his writing style is characterized by a sparse use of punctuation and attribution. He is widely regarded as one of the greatest American novelists.",
     country: "America",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cormac_McCarthy_%28Child_of_God_author_portrait_-_high-res%29.jpg/250px-Cormac_McCarthy_%28Child_of_God_author_portrait_-_high-res%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cormac_McCarthy_%28Child_of_God_author_portrait_-_high-res%29.jpg/250px-Cormac_McCarthy_%28Child_of_God_author_portrait_-_high-res%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_9",
     name: "Harlan Ellison",
     bio: "Harlan Jay Ellison (May 27, 1934 – June 28, 2018) was an American writer, known for his prolific and influential work in New Wave speculative fiction[4] and for his outspoken, combative personality. His published works include more than 1,700 short stories, novellas, screenplays, comic-book scripts, teleplays, essays, and a wide range of criticism covering literature, film, television, and print media.",
     country: "America",
-    photoUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Harlan_Ellison_at_the_LA_Press_Club_%28cropped%29.jpg/250px-Harlan_Ellison_at_the_LA_Press_Club_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    photoUrl:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Harlan_Ellison_at_the_LA_Press_Club_%28cropped%29.jpg/250px-Harlan_Ellison_at_the_LA_Press_Club_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
   },
   {
     id: "a_10",
     name: "Marcus Aurelius",
     bio: "Marcus Aurelius Antoninus (26 April 121 – 17 March 180) was Roman emperor from 161 to 180 and a Stoic philosopher. He was a member of the Nerva–Antonine dynasty, the last of the rulers later known as the Five Good Emperors and the last emperor of the Pax Romana, an age of relative peace, calm, and stability for the Roman Empire lasting from 27 BC to 180 AD. He served as Roman consul in 140, 145, and 161.",
     country: "Greece",
-    photoUrl: "https://en.wikipedia.org/wiki/Marcus_Aurelius#/media/File:MSR-ra-61-b-1-DM.jpg",
+    photoUrl:
+      "https://en.wikipedia.org/wiki/Marcus_Aurelius#/media/File:MSR-ra-61-b-1-DM.jpg",
   },
   {
     id: "a_11",
     name: "Niccolò Machiavelli",
     bio: "Niccolò di Bernardo dei Machiavelli (3 May 1469 – 21 June 1527) was a Florentine diplomat, author, philosopher, and historian who lived during the Italian Renaissance. He is best known for his political treatise The Prince (Il Principe), written around 1513 but not published until 1532, five years after his death. He has often been called the father of modern political philosophy and political science.",
     country: "Italy",
-    photoUrl: "https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli#/media/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg",
+    photoUrl:
+      "https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli#/media/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg",
+  },
+  {
+    id: "a_12",
+    name: "Robert William Chambers",
+    bio: "Chambers was born in Brooklyn, New York, to William P. Chambers (1827–1911), a corporate and bankruptcy lawyer, and Caroline Smith Boughton (1842–1913). His parents met when his mother was twelve years old and William P. was interning with her father, Joseph Boughton, a prominent corporate lawyer. Eventually the two formed the law firm of Chambers and Boughton which continued to prosper even after Joseph's death in 1861. Robert Chambers's great-grandfather, William Chambers (birth unknown), a lieutenant in the British Royal Navy, was married to Amelia Saunders (1765–1822), a great-granddaughter of Tobias Saunders of Westerly, Rhode Island.",
+    country: "America",
+    photoUrl:
+      "https://en.wikipedia.org/wiki/Robert_W._Chambers#/media/File:Robert_William_Chambers.jpg",
+  },
+  {
+    id: "a_13",
+    name: "Jules Gabriel Verne",
+    bio: "Jules Gabriel Verne (/vɜːrn/ VURN; French: [ʒyl ɡabʁijɛl vɛʁn]; 8 February 1828 – 24 March 1905) was a French novelist, poet, and playwright. His collaboration with the publisher Pierre-Jules Hetzel led to the creation of the Voyages extraordinaires, a series of bestselling adventure novels including Journey to the Center of the Earth (1864), Twenty Thousand Leagues Under the Seas (1870), and Around the World in Eighty Days (1872). His novels are generally set in the second half of the 19th century, taking into account contemporary scientific knowledge and the technological advances of the time.",
+    country: "France",
+    photoUrl:
+      "https://en.wikipedia.org/wiki/Jules_Verne#/media/File:Jules_Verne_by_%C3%89tienne_Carjat.jpg",
+  },
+  {
+    id: "a_14",
+    name: "Haruki Murakami",
+    bio: "Haruki Murakami (村上 春樹, Murakami Haruki; born January 12, 1949) is a Japanese writer. His novels, essays, and short stories have been best-sellers in Japan and internationally, with his work translated into 50 languages and having sold millions of copies outside Japan. He has received numerous awards for his work, including the Gunzo Prize for New Writers, the World Fantasy Award, the Tanizaki Prize, Yomiuri Prize for Literature, the Frank O'Connor International Short Story Award, the Noma Literary Prize, the Franz Kafka Prize, the Kiriyama Prize for Fiction, the Goodreads Choice Awards for Best Fiction, the Jerusalem Prize, and the Princess of Asturias Awards.",
+    country: "Japan",
+    photoUrl:
+      "https://en.wikipedia.org/wiki/Haruki_Murakami#/media/File:Conversatorio_Haruki_Murakami_(12_de_12)_(45747009452)_(cropped).jpg",
   },
 ];
 
@@ -87,8 +121,19 @@ export const books: Book[] = [
     authorId: "a_2",
     language: "English",
     genre: "Adventure Fiction",
-    tags: ["Obsession", "Revenge", "Fate", "The Sea", "Nature", "Madness", "Religion", "Adventure", "Sublime"],
-    coverImage: "https://imgs.search.brave.com/9vr-eIvDEHF05QRegSTY9DwRgFyQ063bbpFNOVQNZSA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjE1Z1lBTURIUUwu/anBn",
+    tags: [
+      "Obsession",
+      "Revenge",
+      "Fate",
+      "The Sea",
+      "Nature",
+      "Madness",
+      "Religion",
+      "Adventure",
+      "Sublime",
+    ],
+    coverImage:
+      "https://imgs.search.brave.com/9vr-eIvDEHF05QRegSTY9DwRgFyQ063bbpFNOVQNZSA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjE1Z1lBTURIUUwu/anBn",
     coverTone: "blue",
     pageCount: 286,
     publishedYear: 1851,
@@ -105,8 +150,15 @@ export const books: Book[] = [
     authorId: "a_4",
     language: "English",
     genre: "Gothic Fiction",
-    tags: ["Gothic", "Science Fiction", "Horror", "Romanticism", "Classic Literature"],
-    coverImage: "https://imgs.search.brave.com/ZJRsYsSvBB8Rd4pXNaUHgjaz2NE-_mDXvDlIIHebGjc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YWRhemluZy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjMv/MDYvZnJhbmtlbnN0/ZWluLTIwMTItaGFy/ZGNvdmVyLmpwZw",
+    tags: [
+      "Gothic",
+      "Science Fiction",
+      "Horror",
+      "Romanticism",
+      "Classic Literature",
+    ],
+    coverImage:
+      "https://imgs.search.brave.com/ZJRsYsSvBB8Rd4pXNaUHgjaz2NE-_mDXvDlIIHebGjc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YWRhemluZy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjMv/MDYvZnJhbmtlbnN0/ZWluLTIwMTItaGFy/ZGNvdmVyLmpwZw",
     coverTone: "red",
     pageCount: 105,
     publishedYear: 1818,
@@ -123,8 +175,18 @@ export const books: Book[] = [
     authorId: "a_8",
     language: "English",
     genre: "Historical Fiction",
-    tags: ["War", "Fate", "Mystery", "Atheism", "Existence", "Horror", "Journey", "Violence"],
-    coverImage: "https://thumb.wikimedia.org/wikipedia/en/thumb/d/df/Blood_Meridian_Cormac_McCarthy_book_cover.png/250px-Blood_Meridian_Cormac_McCarthy_book_cover.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    tags: [
+      "War",
+      "Fate",
+      "Mystery",
+      "Atheism",
+      "Existence",
+      "Horror",
+      "Journey",
+      "Violence",
+    ],
+    coverImage:
+      "https://thumb.wikimedia.org/wikipedia/en/thumb/d/df/Blood_Meridian_Cormac_McCarthy_book_cover.png/250px-Blood_Meridian_Cormac_McCarthy_book_cover.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     coverTone: "red",
     pageCount: 557,
     publishedYear: 1985,
@@ -142,7 +204,8 @@ export const books: Book[] = [
     language: "English",
     genre: "Detective Fiction",
     tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
-    coverImage: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Adventures_of_sherlock_holmes.jpg/250px-Adventures_of_sherlock_holmes.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    coverImage:
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Adventures_of_sherlock_holmes.jpg/250px-Adventures_of_sherlock_holmes.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     coverTone: "blue",
     pageCount: 264,
     publishedYear: 1892,
@@ -160,7 +223,8 @@ export const books: Book[] = [
     language: "English",
     genre: "Post-Apocalyptic Horror",
     tags: ["Post-Apocalyptic", "Horror", "Short Story", "Sci-Fi", "AI"],
-    coverImage: "https://en.wikipedia.org/wiki/Special:FilePath/IHaveNoMouth.jpg",
+    coverImage:
+      "https://en.wikipedia.org/wiki/Special:FilePath/IHaveNoMouth.jpg",
     coverTone: "black",
     pageCount: 22,
     publishedYear: 1967,
@@ -196,7 +260,8 @@ export const books: Book[] = [
     language: "English",
     genre: "Historic",
     tags: ["Historic"],
-    coverImage: "https://i.pinimg.com/1200x/63/aa/41/63aa413e062f83b67e91a1199c60ebaf.jpg",
+    coverImage:
+      "https://i.pinimg.com/1200x/63/aa/41/63aa413e062f83b67e91a1199c60ebaf.jpg",
     coverTone: "black",
     pageCount: 83,
     publishedYear: 1558,
@@ -232,7 +297,8 @@ export const books: Book[] = [
     language: "English",
     genre: "Detective Fiction",
     tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
-    coverImage: "https://en.wikipedia.org/wiki/Special:FilePath/ArthurConanDoyle_AStudyInScarlet_annual.jpg",
+    coverImage:
+      "https://en.wikipedia.org/wiki/Special:FilePath/ArthurConanDoyle_AStudyInScarlet_annual.jpg",
     coverTone: "yellow",
     pageCount: 92,
     publishedYear: 1887,
@@ -250,7 +316,8 @@ export const books: Book[] = [
     language: "English",
     genre: "Detective Fiction",
     tags: ["Mystery", "Crime", "Short Story", "Classic Literature", "Suspense"],
-    coverImage: "https://en.wikipedia.org/wiki/Special:FilePath/Cover_(Hound_of_Baskervilles,_1902).jpg",
+    coverImage:
+      "https://en.wikipedia.org/wiki/Special:FilePath/Cover_(Hound_of_Baskervilles,_1902).jpg",
     coverTone: "red",
     pageCount: 154,
     publishedYear: 1901,
@@ -259,6 +326,162 @@ export const books: Book[] = [
     summary:
       "The Hound of the Baskervilles (1902) is a Sherlock Holmes novel by Arthur Conan Doyle. Holmes and Watson investigate the death of Sir Charles Baskerville, who was killed by a terrifying ghostly hound on the Devon moors. Holmes suspects the killer is Jack Stapleton, a relative who uses a real dog painted with phosphorescent paint to impersonate the legendary Baskerville hound and scare victims to death, all to claim the family fortune. Holmes and Watson expose the plot, shoot the hound, and Stapleton drowns in the Grimpen Mire.",
     readingTimeMinutes: 240,
+  },
+  {
+    id: "b_12",
+    slug: "the-odyssey",
+    title: "The Odyssey",
+    authorId: "a_7",
+    language: "English",
+    genre: "Historic",
+    tags: ["Historic", "Epic", "Poem", "Classic Literature", "Greek"],
+    coverImage:
+      "https://i.pinimg.com/736x/60/cd/6e/60cd6e650fe363a98abeaa03ed947428.jpg",
+    coverTone: "red",
+    pageCount: 161,
+    publishedYear: 700,
+    description:
+      "The Odyssey (/ˈɒdɪsi/;[1] Ancient Greek: Ὀδύσσεια, romanized: Odýsseia [odýsseːa]) is one of two major epics of ancient Greek literature attributed to Homer. It is one of the oldest surviving works of literature and remains popular with modern audiences. Like the Iliad, the Odyssey is divided into 24 books. It follows the heroic king of Ithaca, Odysseus, also known by the Latin variant Ulysses, and his homecoming journey after the ten-year-long Trojan War. His journey from Troy to Ithaca lasts an additional ten years, during which time he encounters many perils and all of his crewmates are killed. In Odysseus's long absence, he is presumed dead, leaving his wife Penelope and son Telemachus to contend with a group of unruly suitors competing for Penelope's hand in marriage.",
+    summary:
+      "The Odyssey is an ancient Greek epic by Homer following Odysseus, a warrior king of Ithaca, on his 10-year journey home after the Trojan War. Enraged by Odysseus blinding his son Polyphemus, the sea god Poseidon torments him through storms and shipwrecks. Along the way, Odysseus faces Circe, the Sirens, and other monsters. When he finally returns home in disguise, he slays the suitors who have been courting his wife Penelope and is welcomed back by her and his son Telemachus.",
+    readingTimeMinutes: 480,
+  },
+  {
+    id: "b_13",
+    slug: "the-king-in-yellow",
+    title: "The King in Yellow",
+    authorId: "a_12",
+    language: "English",
+    genre: "Supernatural",
+    tags: [
+      "Horror",
+      "Cosmic Horror",
+      "Weird Fiction",
+      "Gothic",
+      "Supernatural",
+      "Fantasy",
+      "Romance",
+      "Mystery",
+      "Short Story",
+    ],
+    coverImage: "https://www.blackgate.com/wp-content/uploads/2013/10/ky.jpg",
+    coverTone: "yellow",
+    pageCount: 161,
+    publishedYear: 700,
+    description:
+      "The King in Yellow is a short story collection by American writer Robert W. Chambers, first published by F. Tennyson Neely in 1895. The British first edition was published by Chatto & Windus in 1895 (316 pages)",
+    summary:
+      "The King in Yellow is a 1895 collection of short stories by Robert W. Chambers centered around a fictional, cursed play that drives its readers to madness.  The first four stories are linked by the play’s malevolent influence, while the remaining six focus on romantic and artistic themes in Paris and Brittany.",
+    readingTimeMinutes: 240,
+  },
+  {
+    id: "b_14",
+    slug: "around-the-world-in-eighty-days",
+    title: "Around the World in Eighty Days",
+    authorId: "a_13",
+    language: "English",
+    genre: "Adventure",
+    tags: ["Adventure", "Classic Literature", "Journey", "Travel", "Fiction"],
+    coverImage: "https://www.gutenberg.org/cache/epub/103/images/cover.jpg",
+    coverTone: "green",
+    pageCount: 182,
+    publishedYear: 1873,
+    description:
+      "Around the World in Eighty Days is a classic adventure novel by Jules Verne about Phileas Fogg, a precise and wealthy English gentleman who makes a daring wager that he can travel around the world in 80 days. Joined by his loyal French servant Passepartout, he races across continents by train, ship, and other means while being pursued by Detective Fix, who mistakenly believes Fogg is a bank robber. The novel is one of Verne's best-known works and is celebrated for its fast-paced plot, inventive travel, and sense of adventure.",
+    summary:
+      "Around the World in Eighty Days follows Phileas Fogg, who bets that he can circle the globe in 80 days. With Passepartout by his side and Detective Fix in pursuit, Fogg crosses countries and oceans, faces delays and surprises, and nearly loses the wager. In the end, he returns to London, seemingly too late, only to discover that he has actually won by accounting for the date line, and he also finds unexpected love and companionship along the way.",
+    readingTimeMinutes: 360,
+  },
+  {
+    id: "b_15",
+    slug: "journey-to-the-center-of-the-earth",
+    title: "Journey to the Center of the Earth",
+    authorId: "a_13",
+    language: "English",
+    genre: "Adventure",
+    tags: [
+      "Adventure",
+      "Classic Literature",
+      "Science Fiction",
+      "Journey",
+      "Fiction",
+    ],
+    coverImage:
+      "https://setonbooks.com/3365-pdt_540/journey-to-the-center-of-the-earth.jpg",
+    coverTone: "brown",
+    pageCount: 240,
+    publishedYear: 1864,
+    description:
+      "Journey to the Center of the Earth is a classic adventure novel by Jules Verne about Professor Otto Lidenbrock, his nephew Axel, and their guide Hans as they follow a coded message into a volcanic passage in Iceland. Their descent leads them through vast underground caverns, prehistoric landscapes, and dangerous natural phenomena in a race against the depths of the Earth.",
+    summary:
+      "Journey to the Center of the Earth follows Professor Lidenbrock, Axel, and Hans as they descend into an ancient volcanic tunnel beneath Iceland. Deep underground, they encounter strange geological formations, hidden seas, and prehistoric life. After surviving many hazards, they are eventually forced back to the surface by a volcanic eruption, returning with proof of their extraordinary journey.",
+    readingTimeMinutes: 360,
+  },
+  {
+    id: "b_16",
+    slug: "the-mysterious-island",
+    title: "The Mysterious Island",
+    authorId: "a_13",
+    language: "English",
+    genre: "Adventure",
+    tags: [
+      "Adventure",
+      "Classic Literature",
+      "Survival",
+      "Fiction",
+      "Jules Verne",
+    ],
+    coverImage: "https://m.media-amazon.com/images/I/51-bCV8GBAL.jpg",
+    coverTone: "green",
+    pageCount: 520,
+    publishedYear: 1875,
+    description:
+      "The Mysterious Island is a classic adventure novel by Jules Verne about five castaways who escape the American Civil War in a balloon and find themselves stranded on an uncharted island. Using ingenuity, teamwork, and scientific knowledge, they build a new life while uncovering the island's hidden secrets and mysterious connection to Verne's other stories.",
+    summary:
+      "The Mysterious Island follows a group of castaways who survive on an unknown island after fleeing by balloon during the Civil War. Led by Cyrus Smith, they use science and engineering to create shelter, tools, and food while investigating strange events on the island. Over time, they discover that the island holds a remarkable secret, and they are eventually rescued after a sequence of dangerous and surprising revelations.",
+    readingTimeMinutes: 1200,
+  },
+  {
+    id: "b_17",
+    slug: "the-trial",
+    title: "The Trial",
+    authorId: "a_3",
+    language: "English",
+    genre: "Classic Literature",
+    tags: [
+      "Classic Literature",
+      "Philosophical",
+      "Dystopian",
+      "Legal",
+      "Novel",
+    ],
+    coverImage: "https://oldbookdepot.in/wp-content/uploads/2023/09/Trial-By-Franz-Kafka.jpg",
+    coverTone: "gray",
+    pageCount: 24,
+    publishedYear: 1925,
+    description:
+      "The Trial is a novel by Franz Kafka about Josef K., a bank officer who is abruptly arrested and prosecuted by an inaccessible and nonsensical legal system for a crime that is never revealed to him. As he tries to understand the charges and defend himself, he becomes trapped in a world of bureaucracy, confusion, and growing alienation.",
+    summary:
+      "The Trial follows Josef K., who is arrested one morning without being told what crime he has committed. As he searches for answers, he encounters a disturbing legal system filled with opaque procedures, strange officials, and helpless intermediaries. His efforts to resist or understand the process only deepen his confusion, and the novel ends with his execution, underscoring its themes of guilt, powerlessness, and absurdity.",
+    readingTimeMinutes: 420,
+  },
+  {
+    id: "b_18",
+    slug: "kafka-on-the-shore",
+    title: "Kafka on the Shore",
+    authorId: "a_14",
+    language: "English",
+    genre: "Magical Realism",
+    tags: ["Magical Realism", "Literary Fiction", "Mystery", "Coming of Age", "Japanese Literature"],
+    coverImage: "https://m.media-amazon.com/images/I/414a0dI-sLL._SL500_.jpg",
+    coverTone: "black",
+    pageCount: 1280,
+    publishedYear: 2002,
+    description:
+      "Kafka on the Shore is a novel by Haruki Murakami that follows two separate but intertwined storylines: Kafka Tamura, a teenage runaway trying to escape a dark family prophecy, and Satoru Nakata, an elderly man with a mysterious gift for communicating with cats. As their paths gradually converge, the novel moves through dreamlike landscapes, metaphysical questions, and uncanny events.",
+    summary:
+      "Kafka on the Shore follows Kafka Tamura as he leaves home to evade a troubling prophecy and seeks refuge in a private library. At the same time, Nakata travels across Japan after a strange incident left him with unusual abilities. Their stories unfold in parallel, filled with surreal encounters, music, cats, and hidden connections, until the novel reveals a deeper link between fate, memory, and identity.",
+    readingTimeMinutes: 1000,
   },
 ];
 

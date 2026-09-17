@@ -54,7 +54,7 @@ export function NavBar() {
     <header className="border-b-2 border-line">
       <div className="mx-auto flex max-w-350 items-center justify-between px-6 py-4 md:px-10">
         <Link href="/" className="font-display text-lg tracking-tight">
-          BOOKSHELF
+          BOOK<span className="text-accent">SHELF</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
