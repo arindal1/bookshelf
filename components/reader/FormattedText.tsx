@@ -30,21 +30,21 @@ export function FormattedText({ text }: { text: string }) {
     if (match[1]) {
       // "Dialogue" / “Dialogue”
       nodes.push(
-        <span key={key++} className="font-medium text-accentmuted">
+        <span key={key++} className="font-medium text-accent-muted">
           {match[1]}
         </span>
       );
     } else if (match[2]) {
       // *Note*
       nodes.push(
-        <em key={key++} className="italic">
+        <em key={key++} className="italic text-ink/70 font-display">
           {match[2].slice(1, -1)}
         </em>
       );
     } else if (match[3]) {
       // &Heading&
       nodes.push(
-        <span key={key++} className="text-xl font-bold">
+        <span key={key++} className="text-2xl font-bold text-accent">
           {match[3].slice(1, -1)}
         </span>
       );
